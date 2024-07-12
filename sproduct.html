@@ -2,11 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script src="script.js"></script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>BagIt</title>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
     <link rel="stylesheet" href="style.css">
+
+
+    
 </head>
 <body>
     <section id="header">
@@ -26,10 +30,12 @@
             <i id="bar" class="fas fa-outdent"></i>
         </div>
     </section>
+
     
     <section id="prodetails" class="section-p1">
         <div class="sproimage">
             <img src="image/bags/p1.png" width="100%"  id="mainimage" alt="">
+       
             <div class="simagegroup">
                 <div class="simagecol">
                     <img src="image/bags/p1.webp" width="100%" class="smallimage" alt="">
@@ -56,7 +62,7 @@
                 <option>Blue</option>
             </select>
             <input type="number" value="1">
-            <button class="normal">Add to Cart</button>
+            <button class="normal add-to-cart" data-product-id="1" data-product-name="Scarlet Crossbody Bag" data-product-price="749" data-product-image="image/cart/p1.png">Add to Cart</button>
             <h4>Product Details</h4>
             <span>Material: Genuine Leather.Color: Brown with Gold Accents.Dimensions: 10" x 7" x 3".
             Adjustable Shoulder Strap .Secure Lock Closure</span>
@@ -194,6 +200,7 @@
     </footer>
 
     <script>
+        console.log(nam);
         var mainimage=document.getElementById("mainimage");
         var smallimage=document.getElementsByClassName("smallimage");
 
@@ -210,6 +217,6 @@
             mainimage.src=smallimage[3].src;
         }
     </script>
-    <script src="script.js"></script>
+    
 </body>
 </html>
