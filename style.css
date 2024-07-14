@@ -1039,5 +1039,9 @@ button.proceed{
     border: 1px solid #e2e9e1;
     padding: 10px;
     font-size: 13px;
-}
+/*signin*/
 
+/* Specific padding for the newsletter section */
+#newsletter .section-p1 {
+    padding: 20px 0;
+  }
