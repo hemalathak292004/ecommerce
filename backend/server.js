@@ -1,10 +1,9 @@
-require('dotenv').config(); // Load environment variables from .env file
-
+require('dotenv').config(); 
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require('path');
-const User = require('./models/user'); // Correct path to user.js
+const User = require('./models/user'); 
 
 const app = express();
 const PORT = process.env.PORT || 3002;

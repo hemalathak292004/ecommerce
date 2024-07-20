@@ -253,27 +253,27 @@ body {
 }
 
 .np1:hover{
-    content: url("image/nbags/p11.webp");
+    content: url("image/bags/p66.webp");
 }
 
 .np2:hover{
-    content: url("image/nbags/p22.webp");
+    content: url("image/bags/p77.webp");
 }
 
 .np3:hover{
-    content: url("image/nbags/p66.webp");
+    content: url("image/bags/p88.webp");
 }
 
 .np4:hover{
-    content: url("image/nbags/p44.webp");
+    content: url("image/bags/p99.webp");
 }
 
 .np5:hover{
-    content: url("image/nbags/p55.webp");
+    content: url("image/bags/p1010.webp");
 }
 
 .ns1:hover{
-    content: url("image/nshoes/s11.webp");
+    content: url("image/shoes/s11.webp");
 }
 
 .ns2:hover{
@@ -368,7 +368,7 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-image: url(image/banner.jpg);
+    background-image: url(image/bann.jpg);
     width: 100%;
     height: 40vh;
     background-size: cover;
@@ -407,7 +407,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    background-image: url(image/banner2.jpeg);
+    background-image: url(image/ban3.jpg);
     min-width: 580px;
     height: 50vh;
     background-size: cover;
@@ -421,11 +421,11 @@ body {
 }
 
 #sm-banner .banner-box2{
-    background-image: url(image/banner3.jpg);
+    background-image: url(image/ban2.jpg);
 }
 
 #sm-banner h4{
-    color: #fff;
+    color: #fff; 
     font-size: 20px;
     font-weight: 300;
 }
