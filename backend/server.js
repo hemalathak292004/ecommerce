@@ -1,3 +1,4 @@
+const cors = require('cors');
 require('dotenv').config(); 
 const express = require('express');
 const mongoose = require('mongoose');
@@ -7,9 +8,15 @@ const User = require('./models/user');
 
 const app = express();
 const PORT = process.env.PORT || 3002;
+app.use(cors({
+  origin: 'http://127.0.0.1:5500', // Adjust this to match your frontend's origin
+  methods: ['GET', 'POST'], // Specify the methods you want to allow
+  credentials: true, // Include credentials (e.g., cookies) if needed
+}));
 
 // Middleware
 app.use(express.static(path.join(__dirname,'..',"frontend")));
+
 app.use(bodyParser.json());
 
 // MongoDB Connection
@@ -25,22 +32,23 @@ mongoose.connect(dbUri)
 
 // Route to register a new user (Signup)
 app.post('/signup', async (req, res) => {
-  const {  email, password } = req.body;
-
   try {
-    // Check if the user already exists
-    const existingUser = await User.findOne({ email });
-    if (existingUser) {
-      return res.status(400).json({ error: 'User already exists' });
-    }
+      const { email, password } = req.body;
 
-    // Create new user
-    const newUser = new User({email, password });
-    const savedUser = await newUser.save();
-    res.status(201).json(savedUser);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: 'Error registering user' });
+      // Check if user already exists
+      const existingUser = await User.findOne({ email });
+      if (existingUser) {
+          return res.status(400).json({ error: 'User already exists' });
+      }
+
+      // Create a new user
+      const user = new User({ email, password });
+      await user.save();
+
+      res.status(201).json({ message: 'User registered successfully' });
+  } catch (error) {
+      console.error('Error registering user:', error);
+      res.status(500).json({ error: 'Internal Server Error' });
   }
 });
 

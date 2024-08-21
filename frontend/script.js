@@ -14,9 +14,7 @@ if (close) {
     });
 }
 
-
 /*form*/
-
 document.getElementById('signup-form').addEventListener('submit', async (event) => {
     event.preventDefault();
 
@@ -28,23 +26,27 @@ document.getElementById('signup-form').addEventListener('submit', async (event) 
         alert('Passwords do not match');
         return;
     }
-
     try {
         const response = await fetch('http://localhost:3002/signup', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ email, password }) // Corrected body to use email and password
+            body: JSON.stringify({ email, password })
         });
 
+        const data = await response.json();
+
         if (!response.ok) {
-            throw new Error('Signup failed');
+            throw new Error(data.error || 'Signup failed');
         }
 
-        const message = await response.json();
+        alert('Signup successful');
+
+        // Redirect to the home page after successful signup
         
-        alert(message); // Display the response message
+        
+        window.location.href = '/path/to/index.html';
     } catch (error) {
         console.error('Error:', error.message);
         alert('Error: ' + error.message);

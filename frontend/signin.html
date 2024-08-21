@@ -105,7 +105,8 @@
         }
     </style>
         
-    <form id="signup-form" style="border:1px solid #ccc">
+    
+    <form id="signup-form" action="http://localhost:3002/signup" method="POST" style="border:1px solid #ccc">
           <div class="container">
             <h1>Sign In</h1>
             <p>Please fill in this form to create an account.</p>
@@ -183,9 +184,14 @@
   </footer>
 
     <script>
-      function redirectToShop() {
-        window.location.href = 'home.html';
+      function redirectToHome() {
+        console.log('Redirecting to index.html');
+              window.location.href = 'index.html'; // Redirect to the desired page
       }
+      document.getElementById('signup-form').addEventListener('submit', function(event){
+      event.preventDefault(); 
+      redirectToHome();
+     });
     </script>
 
     <script src="script.js"></script>
