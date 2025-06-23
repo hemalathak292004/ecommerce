@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign In | Dev Bags</title>
     <link rel="stylesheet" href="styles.css">
-</head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <body>
     <div class="container">
         <div class="login-box">
@@ -27,7 +27,23 @@
 <script>
 document.getElementById("loginForm").addEventListener("submit", function(e) {
     e.preventDefault();
-    // Here you would typically validate credentials with your backend
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        alert("Please enter a valid email address");
+        return;
+    }
+
+    // Password validation
+    if (password.length < 6) {
+        alert("Password must be at least 6 characters long");
+        return;
+    }
+
+    // If all validations pass
     alert("Signed in successfully!");
     window.location.href = "index.html";
 });
