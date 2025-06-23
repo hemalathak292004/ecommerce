@@ -14,41 +14,7 @@ if (close) {
   });
 }
 
-// Pagination functionality
-document.addEventListener('DOMContentLoaded', function() {
-    const itemsPerPage = 10;
-    const products = document.querySelectorAll('.pro');
-    const paginationLinks = document.querySelectorAll('.pagination a');
 
-    // Show first page by default
-    showPage(1);
-
-    // Add click event listeners to pagination links
-    paginationLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const pageNum = parseInt(this.getAttribute('data-page'));
-            showPage(pageNum);
-
-            // Update active state
-            paginationLinks.forEach(l => l.classList.remove('active'));
-            this.classList.add('active');
-        });
-    });
-
-    function showPage(pageNum) {
-        const start = (pageNum - 1) * itemsPerPage;
-        const end = start + itemsPerPage;
-
-        products.forEach((product, index) => {
-            if (index >= start && index < end) {
-                product.classList.add('show');
-            } else {
-                product.classList.remove('show');
-            }
-        });
-    }
-}
 
 // Cart functionality
 let cart = JSON.parse(localStorage.getItem('cart')) || [];

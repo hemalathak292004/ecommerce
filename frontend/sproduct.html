@@ -2,12 +2,117 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script src="path/to/script.js"></script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>BagIt</title>
+    <title>BagIt - Product Details</title>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
-    <link rel="stylesheet" href="style.css">   
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <style>
+        .sproimage {
+            display: flex;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        .main-image-container {
+            flex: 1.5;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            cursor: zoom-in;
+        }
+        #mainimage {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease;
+            object-fit: cover;
+        }
+        .simagegroup {
+            flex: 0.5;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .simagecol {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        .simagecol:hover {
+            transform: scale(1.05);
+        }
+        .simagecol.active {
+            border-color: #088178;
+            transform: scale(1.05);
+        }
+        .sprodetails {
+            padding: 40px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        .sprodetails h4 {
+            margin: 20px 0;
+            font-size: 22px;
+        }
+        .sprodetails h2 {
+            font-size: 28px;
+            color: #088178;
+            margin: 15px 0;
+        }
+        .sprodetails select, .sprodetails input {
+            padding: 10px 15px;
+            margin: 10px 0;
+            border: 1px solid #e1e1e1;
+            border-radius: 8px;
+            outline: none;
+            transition: border-color 0.3s ease;
+            width: 100%;
+            max-width: 300px;
+        }
+        .sprodetails select:focus, .sprodetails input:focus {
+            border-color: #088178;
+        }
+        .sprodetails button {
+            background-color: #088178;
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .sprodetails button:hover {
+            background-color: #066e67;
+            transform: translateY(-2px);
+        }
+        .product-description {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        .quantity-selector label {
+            display: block;
+            margin-bottom: 5px;
+            color: #666;
+            font-weight: 500;
+        }
+        .star {
+            color: #ffd700;
+            margin: 10px 0;
+        }
+    </style>
 </head>
 <body>
     <section id="header">
@@ -32,38 +137,62 @@
     
     <section id="prodetails" class="section-p1">
         <div class="sproimage">
-            <img src="image/bags/p1.png" width="100%"  id="mainimage" alt="">
-       
+            <div class="main-image-container">
+                <img src="image/bags/p1.webp" id="mainimage" alt="Main product image">
+            </div>
             <div class="simagegroup">
                 <div class="simagecol">
-                    <img src="image/bags/p1.webp" width="100%" class="smallimage" alt="">
+                    <img src="image/bags/p1.webp" width="100%" class="smallimage" alt="Product view 1">
                 </div>
                 <div class="simagecol">
-                    <img src="image/bags/p11.webp" width="100%" class="smallimage" alt="">
+                    <img src="image/bags/p11.webp" width="100%" class="smallimage" alt="Product view 2">
                 </div>
                 <div class="simagecol">
-                    <img src="image/bags/p111.webp" width="100%" class="smallimage" alt="">
+                    <img src="image/bags/p111.webp" width="100%" class="smallimage" alt="Product view 3">
                 </div>
                 <div class="simagecol">
-                    <img src="image/bags/p1111.webp" width="100%" class="smallimage" alt="">
+                    <img src="image/bags/p1111.webp" width="100%" class="smallimage" alt="Product view 4">
                 </div>
             </div>
         </div>
         <div class="sprodetails">
-            <h6>Lethear Handbags</h6>
+            <h6>PREMIUM COLLECTION</h6>
             <h4>Scarlet Crossbody Bag</h4>
+            <div class="star">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <span style="margin-left: 10px; color: #666;">(32 Reviews)</span>
+            </div>
             <h2>&#8377; 749</h2>
-            <select>
-                <option>Select Color</option>
-                <option>Brown</option>
-                <option>Pink</option>
-                <option>Blue</option>
-            </select>
-            <input type="number" value="1">
-            <button class="normal add-to-cart" data-product-id="1" data-product-name="Scarlet Crossbody Bag" data-product-price="749" data-product-image="image/cart/p1.png">Add to Cart</button>
-            <h4>Product Details</h4>
-            <span>Material: Genuine Leather.Color: Brown with Gold Accents.Dimensions: 10" x 7" x 3".
-            Adjustable Shoulder Strap .Secure Lock Closure</span>
+            <div class="product-options">
+                <select>
+                    <option>Select Color</option>
+                    <option>Brown</option>
+                    <option>Pink</option>
+                    <option>Blue</option>
+                </select>
+                <div class="quantity-selector" style="margin: 20px 0;">
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" id="quantity" value="1" min="1" max="10">
+                </div>
+            </div>
+            <button class="normal add-to-cart" data-product-id="1" data-product-name="Scarlet Crossbody Bag" data-product-price="749" data-product-image="image/bags/p1.webp">
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+            </button>
+            <div class="product-description">
+                <h4>Product Details</h4>
+                <ul style="list-style: none; padding: 0;">
+                    <li><i class="fas fa-check" style="color: #088178; margin-right: 10px;"></i>Material: Premium Genuine Leather</li>
+                    <li><i class="fas fa-check" style="color: #088178; margin-right: 10px;"></i>Color: Brown with Gold Accents</li>
+                    <li><i class="fas fa-check" style="color: #088178; margin-right: 10px;"></i>Dimensions: 10" x 7" x 3"</li>
+                    <li><i class="fas fa-check" style="color: #088178; margin-right: 10px;"></i>Adjustable Shoulder Strap</li>
+                    <li><i class="fas fa-check" style="color: #088178; margin-right: 10px;"></i>Secure Lock Closure</li>
+                    <li><i class="fas fa-check" style="color: #088178; margin-right: 10px;"></i>Interior: Multiple Compartments</li>
+                </ul>
+            </div>
         </div>
     </section>
 
@@ -198,23 +327,62 @@
     </footer>
 
     <script>
-        console.log(nam);
-        var mainimage=document.getElementById("mainimage");
-        var smallimage=document.getElementsByClassName("smallimage");
+        document.addEventListener('DOMContentLoaded', function() {
+            // Image switching functionality
+            const mainImage = document.getElementById('mainimage');
+            const smallImages = document.querySelectorAll('.smallimage');
 
-        smallimage[0].onclick =function(){
-            mainimage.src=smallimage[0].src;
-        }
-        smallimage[1].onclick =function(){
-            mainimage.src=smallimage[1].src;
-        }
-        smallimage[2].onclick =function(){
-            mainimage.src=smallimage[2].src;
-        }
-        smallimage[3].onclick =function(){
-            mainimage.src=smallimage[3].src;
-        }
-    </script>
+            smallImages.forEach(img => {
+                img.addEventListener('click', function() {
+                    mainImage.src = this.src;
+                    // Remove active class from all images
+                    smallImages.forEach(i => i.parentElement.classList.remove('active'));
+                    // Add active class to clicked image
+                    this.parentElement.classList.add('active');
+                });
+            });
+
+            // Quantity input validation
+            const quantityInput = document.getElementById('quantity');
+            quantityInput.addEventListener('change', function() {
+                if (this.value < 1) this.value = 1;
+                if (this.value > 10) this.value = 10;
+            });
+
+            // Add hover effect to main image
+            const mainImageContainer = document.querySelector('.main-image-container');
+            mainImageContainer.addEventListener('mousemove', function(e) {
+                const { left, top, width, height } = this.getBoundingClientRect();
+                const x = (e.clientX - left) / width;
+                const y = (e.clientY - top) / height;
+                mainImage.style.transform = `scale(1.5) translate(${-x * 50}%, ${-y * 50}%)`;
+            });
+
+            mainImageContainer.addEventListener('mouseleave', function() {
+                mainImage.style.transform = 'scale(1) translate(0, 0)';
+            });
+
+            // Add to cart functionality with quantity
+            const addToCartBtn = document.querySelector('.add-to-cart');
+            addToCartBtn.addEventListener('click', function() {
+                const quantity = parseInt(quantityInput.value);
+                const productInfo = {
+                    id: this.dataset.productId,
+                    name: this.dataset.productName,
+                    price: this.dataset.productPrice,
+                    image: this.dataset.productImage,
+                    quantity: quantity
+                };
+                addToCart(productInfo);
+            });
+        });
     
+        
+        </script>
+
+        </body>
+</html>
+            
+
 </body>
 </html>
