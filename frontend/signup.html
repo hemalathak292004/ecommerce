@@ -26,19 +26,11 @@
     
 </body>
 <script>
-document.getElementById("signupForm").addEventListener("submit", async function(e) {
+document.getElementById("signupForm").addEventListener("submit", function(e) {
     e.preventDefault();
-    const response = await fetch("http://localhost:3002/signup", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-            name: document.getElementById("name").value,
-            email: document.getElementById("email").value,
-            password: document.getElementById("password").value
-        })
-    });
-    const result = await response.json();
-    alert(result.message);
+    // Here you would typically send data to your backend
+    alert("Signed up successfully!");
+    window.location.href = "index.html";
 });
 </script>
 </html>
